@@ -3,7 +3,7 @@
 Plugin Name: Semisecure Login
 Plugin URI: http://jamesmallen.net/
 Description: Semisecure Login increases the security of the login process using client-side MD5 encryption on the password when a user logs in. JavaScript is required to enable encryption.
-Version: 1.0
+Version: 1.0.1
 Author: James M. Allen
 Author URI: http://jamesmallen.net/
 */
@@ -108,6 +108,9 @@ if (! class_exists('SemisecureLogin')) {
 					wp_setcookie($user->user_login, $password, $using_cookie);
 				}
 			}
+			
+			// expire the nonce
+			$_SESSION['login_nonce'] = md5(rand());
 			
 			// degrades in the absence of JavaScript
 		}

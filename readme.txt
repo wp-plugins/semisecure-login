@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=james%2e
 Tags: admin, login, md5, hash, encryption, security, password
 Requires at least: 2.1
 Tested up to: 2.2
-Stable tag: 1.0
+Stable tag: 1.0.1
 
 Semisecure Login increases the security of the login process using client-side MD5 encryption on the password when a user logs in.
 
@@ -28,3 +28,11 @@ If JavaScript is not enabled, the password is sent in cleartext just like normal
 = Is this really secure? =
 
 It is not as secure as SSL, but it should prevent a large number of potential hijackings, as long as users are using modern browsers with JavaScript enabled. I obviously make no guarantees.
+
+== Changelog ==
+
+= 1.0.1 =
+* *Enhancement:* Forced expiration of the login nonce after its one potential use. Previously, this could stick around and thus would be vulnerable to a replay attack if a session was hijacked.
+
+= 1.0 =
+* Initial Release

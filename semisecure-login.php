@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Semisecure Login
-Plugin URI: http://jamesmallen.net/
+Plugin URI: http://jamesmallen.net/2007/09/16/semisecure-login/
 Description: Semisecure Login increases the security of the login process using client-side MD5 encryption on the password when a user logs in. JavaScript is required to enable encryption.
-Version: 1.0.1
+Version: 1.0.2
 Author: James M. Allen
 Author URI: http://jamesmallen.net/
 */
@@ -57,6 +57,8 @@ if (! class_exists('SemisecureLogin')) {
 			
 			var password = userPwd.value;
 			
+			semisecureMessage.innerHTML = 'Encrypting password and logging in...';
+			
 			var userMD5Pwd = document.createElement('input');
 			userMD5Pwd.setAttribute('type', 'hidden');
 			userMD5Pwd.setAttribute('id', 'user_pass_md5');
@@ -80,9 +82,17 @@ if (! class_exists('SemisecureLogin')) {
 		 */
 		function login_form() {
 			?>
+		<p id="semisecure-message">
+				<span style="background-color: #ff0; color: #000;">Semisecure Login is not enabled!</span><br />
+				Please enable JavaScript and use a modern browser to ensure your password is encrypted.
+		</p>
 		<script language="javascript" type="text/javascript">
 			var formLogin = document.getElementById('loginform');
 			formLogin.setAttribute('onsubmit', 'return hashPwd();');
+			
+			var semisecureMessage = document.getElementById('semisecure-message');
+			semisecureMessage.setAttribute('class', '');
+			semisecureMessage.innerHTML = 'Semisecure Login is enabled.';
 		</script>
 		<?php
 		}

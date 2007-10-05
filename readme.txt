@@ -45,6 +45,9 @@ Use SSL. This means you'll have to have a dedicated IP (which usually costs addi
 
 == Changelog ==
 
+= 1.0.3 =
+* *Bug:* Fixed "headers already sent" warning when starting sessions.
+
 = 1.0.2 =
 * *Enhancement:* Added messages to the login window to indicate whether Semisecure Login is enabled and functional.
 * Clarified documentation.

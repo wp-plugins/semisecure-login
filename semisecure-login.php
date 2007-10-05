@@ -3,7 +3,7 @@
 Plugin Name: Semisecure Login
 Plugin URI: http://jamesmallen.net/2007/09/16/semisecure-login/
 Description: Semisecure Login increases the security of the login process using client-side MD5 encryption on the password when a user logs in. JavaScript is required to enable encryption.
-Version: 1.0.2
+Version: 1.0.3
 Author: James M. Allen
 Author URI: http://jamesmallen.net/
 */
@@ -40,7 +40,7 @@ if (! class_exists('SemisecureLogin')) {
 		 * Sets the nonce, includes JavaScript for preparing the login form
 		 */
 		function login_head() {
-			session_start();
+			@session_start();
 			
 			// always generate a new nonce
 			$_SESSION['login_nonce'] = md5(rand());
@@ -107,7 +107,7 @@ if (! class_exists('SemisecureLogin')) {
 			
 			// only do anything if pwd_md5 is set - otherwise degrade gracefully
 			if (!empty($_POST['pwd_md5'])) {
-				session_start();
+				@session_start();
 				
 				$user = get_userdatabylogin($username);
 				

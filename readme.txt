@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=james%2e
 Tags: admin, login, md5, hash, encryption, security, password
 Requires at least: 2.1
 Tested up to: 2.3
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 Semisecure Login increases the security of the login process using client-side MD5 encryption on the password when a user logs in.
 
